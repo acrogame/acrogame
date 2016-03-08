@@ -1,0 +1,14 @@
+{
+  "name": "acrogame",
+  "version": "0.0.1",
+  "description": "The Acro client",
+  "main": "app.js",
+  "scripts": {
+    "test": "\"\""
+  },
+  "author": "David Nichols",
+  "license": "MIT",
+  "dependencies": {
+    "bower": "^1.7.7"
+  }
+}

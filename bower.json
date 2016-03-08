@@ -1,0 +1,26 @@
+{
+  "name": "acrogame",
+  "version": "0.0.1",
+  "homepage": "https://github.com/robotnoises/acrogame",
+  "description": "The Acro client",
+  "main": "app.js",
+  "moduleType": [
+    "globals"
+  ],
+  "authors": [
+    "David Nichols"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angularfire": "~1.1.4"
+  }
+}
