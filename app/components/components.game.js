@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 Game = __decorate([
                     core_1.Component({
                         selector: 'game',
-                        template: '<div class="container">Game</div>'
+                        template: '<div class="container margin-top">Game</div>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Game);

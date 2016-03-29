@@ -27,8 +27,10 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
   directives: [ROUTER_DIRECTIVES],
   template: `
     <nav class="navbar">
-     <a class="pointer" [routerLink]="['Home']">Home</a>
-     <a class="pointer" [routerLink]="['About']">How to play</a>
+      <div class="container">
+        <a class="pointer" [routerLink]="['Home']">Home</a>
+        <a class="pointer" [routerLink]="['About']">How to play</a>
+      </div>
     </nav>
     <router-outlet></router-outlet>
   `

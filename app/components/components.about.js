@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 About = __decorate([
                     core_1.Component({
                         selector: 'about',
-                        template: '<div class="container">About</div>'
+                        templateUrl: 'app/templates/templates.about.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], About);

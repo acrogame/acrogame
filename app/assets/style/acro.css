@@ -10,13 +10,13 @@
   line-height: 40px;
 }
 
-.container {
-  margin-top: 40px;
-}
-
 /*
  * Helpers
 */
+
+.margin-top {
+  margin-top: 40px;
+}
 
 .pointer {
   cursor: pointer;
