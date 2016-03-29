@@ -1,5 +1,5 @@
 /// <reference path="./../../node_modules/angular2/typings/browser.d.ts" />
-System.register(['angular2/core', 'angular2/router', './components.foo'], function(exports_1, context_1) {
+System.register(['angular2/core', './components.home', './components.about', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,18 +11,21 @@ System.register(['angular2/core', 'angular2/router', './components.foo'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, components_foo_1;
+    var core_1, components_home_1, components_about_1, router_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (components_home_1_1) {
+                components_home_1 = components_home_1_1;
+            },
+            function (components_about_1_1) {
+                components_about_1 = components_about_1_1;
+            },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (components_foo_1_1) {
-                components_foo_1 = components_foo_1_1;
             }],
         execute: function() {
             // Router Configuration
@@ -31,12 +34,21 @@ System.register(['angular2/core', 'angular2/router', './components.foo'], functi
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        { path: '/foo', name: 'Foo', component: components_foo_1.Foo }
+                        {
+                            name: 'Home',
+                            path: '/',
+                            component: components_home_1.Home
+                        },
+                        {
+                            name: 'About',
+                            path: '/about',
+                            component: components_about_1.About
+                        }
                     ]),
                     core_1.Component({
                         selector: 'acro',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n    <nav class=\"navbar\">\n     <a class=\"pointer\" [routerLink]=\"['Foo']\">Foo</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
+                        template: "\n    <nav class=\"navbar\">\n     <a class=\"pointer\" [routerLink]=\"['Home']\">Home</a>\n     <a class=\"pointer\" [routerLink]=\"['About']\">How to play</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
