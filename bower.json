@@ -20,7 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6",
-    "angularfire": "~1.1.4"
+    "milligram": "^1.1.0"
   }
 }
