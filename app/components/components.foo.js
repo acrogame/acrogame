@@ -1,4 +1,3 @@
-/// <reference path="./../node_modules/angular2/typings/browser.d.ts" />
 System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -12,27 +11,27 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AppComponent;
+    var Foo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            Foo = (function () {
+                function Foo() {
                 }
-                AppComponent = __decorate([
+                Foo = __decorate([
                     core_1.Component({
-                        selector: 'acro',
-                        template: '<p>Hello, world!</p>'
+                        selector: 'foo',
+                        template: '<div class="container">Foo</div>'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], Foo);
+                return Foo;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("Foo", Foo);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=components.foo.js.map
