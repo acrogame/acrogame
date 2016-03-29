@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 
 @Component({
   selector: 'game',
-  template: '<div class="container margin-top">Game</div>'
+  templateUrl: 'app/templates/templates.game.html'
 })
 
 export class Game { }

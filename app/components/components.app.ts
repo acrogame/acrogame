@@ -26,7 +26,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
   selector: 'acro',
   directives: [ROUTER_DIRECTIVES],
   template: `
-    <nav class="navbar">
+    <nav class="navbar gradient color-white shadow">
       <div class="container">
         <a class="pointer" [routerLink]="['Home']">Home</a>
         <a class="pointer" [routerLink]="['About']">How to play</a>
