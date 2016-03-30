@@ -26,10 +26,11 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
   selector: 'acro',
   directives: [ROUTER_DIRECTIVES],
   template: `
-    <nav class="navbar gradient color-white shadow">
+    <nav class="navbar gradient color-white">
       <div class="container">
-        <a class="pointer" [routerLink]="['Home']">Home</a>
-        <a class="pointer" [routerLink]="['About']">How to play</a>
+        <a class="pointer logo" [routerLink]="['Home']">Acro</a>
+        <a class="pointer float-right" [routerLink]="['About']">Sign In</a>
+        <a class="pointer float-right" [routerLink]="['About']">How to play</a>
       </div>
     </nav>
     <router-outlet></router-outlet>

@@ -48,7 +48,7 @@ System.register(['angular2/core', './components.home', './components.about', 'an
                     core_1.Component({
                         selector: 'acro',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n    <nav class=\"navbar gradient color-white shadow\">\n      <div class=\"container\">\n        <a class=\"pointer\" [routerLink]=\"['Home']\">Home</a>\n        <a class=\"pointer\" [routerLink]=\"['About']\">How to play</a>\n      </div>\n    </nav>\n    <router-outlet></router-outlet>\n  "
+                        template: "\n    <nav class=\"navbar gradient color-white\">\n      <div class=\"container\">\n        <a class=\"pointer logo\" [routerLink]=\"['Home']\">Acro</a>\n        <a class=\"pointer float-right\" [routerLink]=\"['About']\">Sign In</a>\n        <a class=\"pointer float-right\" [routerLink]=\"['About']\">How to play</a>\n      </div>\n    </nav>\n    <router-outlet></router-outlet>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
