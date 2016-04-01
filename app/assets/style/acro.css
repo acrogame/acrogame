@@ -76,11 +76,10 @@ h1 {
 }
 
 .panel {
-  background-color: rgba(0,0,0,0.05);
+  /*background-color: rgba(0,0,0,0.075);*/
   border-radius: .4rem;
-  padding-bottom: 10px;
   width: 100%;
-  margin: 25px auto;
+  margin-bottom: 25px;
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -88,8 +87,8 @@ h1 {
 
 .panel button {
   display: block;
-  /*width: 135px;*/
-  margin: 10px 0 0 10px;
+  width: 175px;
+  margin-bottom: 15px;
 }
 
 /*
@@ -151,14 +150,22 @@ h1 {
   box-shadow: none;
 }
 
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 25px 0;
+}
+
 /*
  * Overrides
 */
 
 .button {
-  height: 2.25rem;
-  line-height: 2.25rem;
-  font-size: 0.9rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 0.8rem;
   background-color: #7b4397;
-  padding: 0 2rem;
+  padding: 0;
+  text-align: center;
 }
