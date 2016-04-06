@@ -1,5 +1,5 @@
 /// <reference path="./../../node_modules/angular2/typings/browser.d.ts" />
-System.register(['angular2/core', './components.home', './components.about', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './components.home', './components.about', './components.game', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', './components.home', './components.about', 'an
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, components_home_1, components_about_1, router_1;
+    var core_1, components_home_1, components_about_1, components_game_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/core', './components.home', './components.about', 'an
             },
             function (components_about_1_1) {
                 components_about_1 = components_about_1_1;
+            },
+            function (components_game_1_1) {
+                components_game_1 = components_game_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
@@ -43,6 +46,11 @@ System.register(['angular2/core', './components.home', './components.about', 'an
                             name: 'About',
                             path: '/about',
                             component: components_about_1.About
+                        },
+                        {
+                            name: 'Game',
+                            path: '/game',
+                            component: components_game_1.Game
                         }
                     ]),
                     core_1.Component({

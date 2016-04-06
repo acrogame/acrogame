@@ -3,6 +3,7 @@
 import {Component}                      from 'angular2/core';
 import {Home}                           from './components.home';
 import {About}                          from './components.about';
+import {Game}                           from './components.game';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 // Router Configuration
@@ -17,6 +18,11 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
     name: 'About',
     path: '/about', 
     component: About
+  },
+  {
+    name: 'Game',
+    path: '/game', 
+    component: Game
   }
 ])
 

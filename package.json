@@ -17,6 +17,7 @@
     "angular2": "^2.0.0-beta.12",
     "bower": "^1.7.7",
     "es6-shim": "^0.35.0",
+    "firebase": "^2.4.2",
     "reflect-metadata": "^0.1.2",
     "rxjs": "^5.0.0-beta.2",
     "systemjs": "^0.19.24",
