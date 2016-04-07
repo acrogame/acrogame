@@ -36,7 +36,7 @@
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     
-    <script src="node_modules/firebase/lib/firebase-web.js"></script>
+    <!--<script src="node_modules/firebase/lib/firebase-web.js"></script>-->
     
     <!-- Configure SystemJS -->
     <script>
@@ -48,6 +48,9 @@
           }
         }
       });
+      
+      System.import('node_modules/firebase/lib/firebase-web.js');
+      
       System.import('app/main')
             .then(null, console.error.bind(console));
     </script>
