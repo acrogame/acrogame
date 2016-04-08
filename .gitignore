@@ -1,10 +1,23 @@
+/* Libs */
+
 node_modules/
 bower_components/
+
+
+/* debug log */
 
 npm-debug.log
 
 
+/* Don't track transpiled files */
+
 app/*.js
 app/.js.map
+app/config/*.js
+app/config/*.js.map
 app/components/*.js
 app/components/*.js.map
+app/pipes/*.js
+app/pipes/*.js.map
+app/services/*.js
+app/services/*.js.map
