@@ -2,3 +2,9 @@ node_modules/
 bower_components/
 
 npm-debug.log
+
+
+app/*.js
+app/.js.map
+app/components/*.js
+app/components/*.js.map

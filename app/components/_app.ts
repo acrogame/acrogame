@@ -1,10 +1,10 @@
 /// <reference path="./../../node_modules/angular2/typings/browser.d.ts" />
 
 import {Component}                      from 'angular2/core';
-import {Home}                           from './components.home';
-import {About}                          from './components.about';
-import {Game}                           from './components.game';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Home}                           from './home';
+import {About}                          from './about';
+import {Game}                           from './game';
 
 // Router Configuration
 
