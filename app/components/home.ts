@@ -1,7 +1,5 @@
-import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-
-// import {Location}   from 'angular2/router';
+import {Component}                  from 'angular2/core';
+import {ROUTER_DIRECTIVES, Router}  from 'angular2/router';
 
 @Component({
   selector: 'home',
@@ -10,14 +8,5 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 })
 
 export class Home { 
-  
-  // private location: any;
-  
-  // constructor(location: Location) {
-  //   this.location = location;
-  // }
-  
-  // goTo(path: string) {
-  //   this.location.go(path);
-  // }
+  // todo
 }
