@@ -1,5 +1,6 @@
 import {Injectable, Inject}   from 'angular2/core';
 import {Config}               from './../config/config.acro';
+
 @Injectable()
 export class FirebaseService {
   
@@ -10,6 +11,10 @@ export class FirebaseService {
       this.$fb = new Firebase(config.get('firebaseUrl'));
     }
   }
+  
+  /* 
+   * @path: make sure there is a leading '/'
+  */ 
   
   getRef(path: string): any {
     if (this.$fb) {
