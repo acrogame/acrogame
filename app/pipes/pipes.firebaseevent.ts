@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Inject, Pipe, WrappedValue}  from 'angular2/core';
-import {FirebaseService}                                from './../services/services.firebase';
 
 export enum ALLOWED_FIREBASE_EVENTS {
   value, 

@@ -162,10 +162,13 @@ h1 {
 */
 
 .button {
+  background-color: #7b4397;
+}
+
+.panel .button {
   height: 2.5rem;
   line-height: 2.5rem;
   font-size: 0.8rem;
-  background-color: #7b4397;
   padding: 0;
   text-align: center;
 }

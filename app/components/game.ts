@@ -1,39 +1,24 @@
 import {Component, Inject}  from 'angular2/core';
+import {RouteParams} from 'angular2/router';
 import {FirebaseEventPipe}  from './../pipes/pipes.firebaseevent';
-// import {FirebaseService}    from './../services/services.firebase';
+import {Config} from './../config/config.acro';
 
 @Component({
   selector: 'game',
   templateUrl: 'app/templates/templates.game.html',
-  // directives: [ngFor],
-  pipes: [FirebaseEventPipe]
+  pipes: [FirebaseEventPipe],
+  providers: [Config]
 })
 
 export class Game {
   
   firebaseUrl: string;
   
-  constructor() {
-    this.firebaseUrl = 'https://acrogame.firebaseio.com/foo';
+  constructor(private config: Config, private routeParams: RouteParams) {
+    
+    var fbUrl = config.get('firebaseUrl');
+    var gameId = routeParams.get('id');
+    
+    this.firebaseUrl = `${fbUrl}/games/${gameId}`; 
   }
-  
-  // private $ref: any;
-  
-  // current: any;
-  
-  // private loadRef($fbRef: any) {
-  //   this.$ref = $fbRef;
-  //   this.$ref.child('foo').on('value', $snapshot => {
-  //     this.current = $snapshot.val();
-  //   })
-  // }
-  
-  // constructor(private firebaseService: FirebaseService) {
-    
-  //   this.$ref = {};
-    
-  //   firebaseService.getRef().then($fbRef => {
-  //     this.$ref = $fbRef;
-  //   });
-  // }
 }
