@@ -30,10 +30,9 @@ export class GameModel implements IGame {
   
   constructor(roomId: string, currentUser: IUser) {
     this.roomId = roomId;
+    this.addPlayer(currentUser);
     this.round = GAME_ROUND.NONE;
     this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
-    
-    this.addPlayer(currentUser);
   }
   
   addPlayer(user: IUser) {
