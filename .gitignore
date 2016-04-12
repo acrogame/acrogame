@@ -21,3 +21,5 @@ app/pipes/*.js
 app/pipes/*.js.map
 app/services/*.js
 app/services/*.js.map
+app/models/*.js
+app/models/*.js.map
