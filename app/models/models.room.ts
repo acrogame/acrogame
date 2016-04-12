@@ -2,7 +2,7 @@ export interface IRoom {
   id: string;
   name: string;
   loaded: boolean;
-  last_activity: string;
+  timestamp: string;
   state: ROOM_STATE;
   content_rating: ROOM_RATING;
   speed: ROOM_SPEED;
@@ -29,7 +29,7 @@ export class RoomModel implements IRoom {
   id: string;
   name: string;
   loaded: boolean;
-  last_activity: string;
+  timestamp: string;
   state: ROOM_STATE;
   content_rating: ROOM_RATING;
   speed: ROOM_SPEED;
@@ -49,6 +49,6 @@ export class RoomModel implements IRoom {
     
     this.state = ROOM_STATE.INACTIVE;
     this.loaded = false;
-    this.last_activity = window.Firebase.ServerValue.TIMESTAMP;
+    this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
   }
 }

@@ -29,7 +29,7 @@ System.register([], function(exports_1, context_1) {
                     this.speed = speed || ROOM_SPEED.MEDIUM;
                     this.state = ROOM_STATE.INACTIVE;
                     this.loaded = false;
-                    this.last_activity = window.Firebase.ServerValue.TIMESTAMP;
+                    this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
                 }
                 return RoomModel;
             }());

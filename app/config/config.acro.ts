@@ -4,9 +4,11 @@ import {Injectable}   from 'angular2/core';
 export class Config {
   
   private firebaseUrl: string;
+  private taskPath: string; 
   
   constructor() { 
-    this.firebaseUrl = 'https://acrogame.firebaseio.com/';
+    this.firebaseUrl = 'https://acrogame.firebaseio.com';
+    this.taskPath = '/queue/tasks'
   }
   
   public get(thing: string): any {
