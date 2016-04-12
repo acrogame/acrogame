@@ -1,6 +1,7 @@
-import {Component, Inject}  from 'angular2/core';
-import {Router}             from 'angular2/router';
-import {FirebaseService}    from './../services/services.firebase';
+import {Component}                          from 'angular2/core';
+import {Router}                             from 'angular2/router';
+import {FirebaseService}                    from './../services/services.firebase';
+import {RoomModel, ROOM_SPEED, ROOM_RATING} from './../models/models.room';
 
 @Component({
   selector: 'game-create',
@@ -35,12 +36,10 @@ export class GameNew {
     var $newRoom = this.$ref.push();
     var $id = $newRoom.key();
     
-    // Todo: Model
-    $newRoom.set({
-      id: $id,
-      loaded: false,
-      name: `Room_${$id}`
-    }, this.onComplete);
+    var roomName = `Name_${$id}`;
+    var newRoom = new RoomModel(roomName, $id, ROOM_RATING.R, ROOM_SPEED.FAST);
+    
+    $newRoom.set(newRoom, this.onComplete);
     
     this.goToRoom($id);
   }
