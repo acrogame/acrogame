@@ -15,8 +15,10 @@ import {Spinner}            from './../components/spinner';
 
 export class Room implements OnInit {
   
-  firebaseUrl: string;
-  firebaseRef: any;
+  $roomRef: any;
+  room: Object;
+  roomUrl: string;
+  chatUrl: string;
   loading: boolean;
   
   constructor(
@@ -25,23 +27,26 @@ export class Room implements OnInit {
     private firebaseService: FirebaseService, 
     private routeParams: RouteParams) {
     
-    var roomId = routeParams.get('id');
     var fbUrl = config.get('firebaseUrl');
-    var fbPath = `/rooms/${roomId}`;
+    var roomId = routeParams.get('id');
+    var roomPath = `/rooms/${roomId}`;
+    var chatPath = `/chats/${roomId}`;
     
+    this.$roomRef = firebaseService.getRef(roomPath);
+    this.room = {};
+    this.roomUrl = `${fbUrl}${roomPath}`;
+    this.chatUrl = `${fbUrl}${chatPath}`;
     this.loading = true;
-    this.firebaseUrl = `${fbUrl}${fbPath}`;
-    this.firebaseRef = firebaseService.getRef(fbPath);
   }
   
   ngOnInit() {
-    var roomValue: Object;
-    this.firebaseRef.on('value', this.roomLoaded.bind(this));
+    this.$roomRef.on('value', this.roomLoaded.bind(this));
   }
   
   private roomLoaded($snap: any): void {
     var value = $snap.val();
     if (value) {
+      this.room = value;
       this.loading = !value.loaded;
     }
   }

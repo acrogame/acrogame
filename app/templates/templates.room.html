@@ -5,10 +5,14 @@
     <spinner [show]="loading"></spinner>
   </div>
   
+  <div class="game-board">
+    <h1>{{room.name}}</h1>
+  </div>
+  
   <div>
     <ul class="messages-list">
-		  <li *ngFor="#thing of firebaseUrl | $firebaseevent:'child_added'">
-		  	Here's a thing: <strong>{{thing}}</strong>
+		  <li *ngFor="#msg of chatUrl | $firebaseevent:'child_added'">
+		  	dnichols: <strong>{{msg}}</strong>
 		  </li>
 	  </ul>
   </div>

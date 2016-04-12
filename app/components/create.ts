@@ -35,9 +35,11 @@ export class GameNew {
     var $newRoom = this.$ref.push();
     var $id = $newRoom.key();
     
+    // Todo: Model
     $newRoom.set({
       id: $id,
-      loaded: false
+      loaded: false,
+      name: `Room_${$id}`
     }, this.onComplete);
     
     this.goToRoom($id);
