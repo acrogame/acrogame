@@ -13,12 +13,12 @@ export class GameNew {
   $ref: any;
   
   constructor(private firebase: FirebaseService, private router: Router) {
-    this.$ref = firebase.getRef('/games');
+    this.$ref = firebase.getRef('/rooms');
   }
   
-  private goToGame(id: string) {
+  private goToRoom(id: string) {
     try {
-      this.router.navigate(['Game', {id: `${id}`}]);
+      this.router.navigate(['Room', {id: `${id}`}]);
     } catch(ex) {
       console.error(ex);
     }
@@ -32,14 +32,14 @@ export class GameNew {
 
   create() {
     
-    var $newGame = this.$ref.push();
-    var $id = $newGame.key();
+    var $newRoom = this.$ref.push();
+    var $id = $newRoom.key();
     
-    $newGame.set({
+    $newRoom.set({
       id: $id,
       loaded: false
     }, this.onComplete);
     
-    this.goToGame($id);
+    this.goToRoom($id);
   }
 }

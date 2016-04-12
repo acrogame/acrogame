@@ -6,14 +6,14 @@ import {Config}             from './../config/config.acro';
 import {Spinner}            from './../components/spinner';
 
 @Component({
-  selector: 'game',
-  templateUrl: 'app/templates/templates.game.html',
+  selector: 'room',
+  templateUrl: 'app/templates/templates.room.html',
   pipes: [FirebaseEventPipe],
   providers: [Config, FirebaseService],
   directives: [Spinner]
 })
 
-export class Game implements OnInit {
+export class Room implements OnInit {
   
   firebaseUrl: string;
   firebaseRef: any;
@@ -25,9 +25,9 @@ export class Game implements OnInit {
     private firebaseService: FirebaseService, 
     private routeParams: RouteParams) {
     
-    var gameId = routeParams.get('id');
+    var roomId = routeParams.get('id');
     var fbUrl = config.get('firebaseUrl');
-    var fbPath = `/games/${gameId}`;
+    var fbPath = `/rooms/${roomId}`;
     
     this.loading = true;
     this.firebaseUrl = `${fbUrl}${fbPath}`;
