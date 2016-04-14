@@ -105,9 +105,9 @@ h1 {
 }
 
 .gradient {
-  background: #7b4397; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #7b4397 , #dc2430); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #7b4397 , #dc2430); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #9b59b6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #9b59b6 , #e74c3c); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #9b59b6 , #e74c3c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /*
@@ -156,6 +156,26 @@ h1 {
   }
 }
 
+/*
+ * Details
+*/
+
+.box {
+  border-radius: 6px;
+  border-width: 3px;
+  border-color: rgba(0,0,0,0.2);
+  
+  transition: background 200ms;
+}
+
+.button.box:hover {
+  background-color: #ab69c6;
+}
+
+.button.box:active {
+  background-color: #8b49a6;
+  border-color: #8b49a6;
+}
 
 /*
  * Helpers
@@ -206,16 +226,32 @@ h1 {
 }
 
 /*
+ * Colors
+*/
+
+.purple {
+  color: #9b59b6;
+}
+
+.red {
+  color: #e74c3c;
+}
+
+.green {
+  color: #2ecc71;
+}
+
+/*
  * Overrides
 */
 
 .button {
-  background-color: #7b4397;
+  background-color: #9b59b6;
 }
 
 .panel .button {
   height: 2.5rem;
-  line-height: 2.5rem;
+  line-height: 2rem;
   font-size: 0.8rem;
   padding: 0;
   text-align: center;
