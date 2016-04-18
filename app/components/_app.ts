@@ -5,7 +5,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Home}                           from './home';
 import {About}                          from './about';
 import {Room}                           from './room';
-import {GameNew}                        from './create';
+import {RoomNew}                        from './create';
 
 // Router Configuration
 
@@ -21,9 +21,9 @@ import {GameNew}                        from './create';
     component: About
   },
   {
-    name: 'GameNew',
-    path: '/game/new', 
-    component: GameNew
+    name: 'RoomNew',
+    path: '/room/new', 
+    component: RoomNew
   },
   {
     name: 'Room',
@@ -42,7 +42,7 @@ import {GameNew}                        from './create';
       <div class="container">
         <a class="pointer logo" [routerLink]="['Home']">Acro</a>
         <a class="pointer float-right" [routerLink]="['About']">Sign In</a>
-        <a class="pointer float-right" [routerLink]="['GameNew']">New Room</a>
+        <a class="pointer float-right" [routerLink]="['RoomNew']">New Room</a>
         <a class="pointer float-right" [routerLink]="['About']">How to play</a>
       </div>
     </nav>

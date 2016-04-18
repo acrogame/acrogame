@@ -1,23 +1,24 @@
 export interface ITask {
   type: TASK_TYPE;
-  target_id: string;
+  data: Object;
   timestamp: string;
 }
 
 export enum TASK_TYPE {
-  FOO,
-  BAR
+  NEW_GAME
 }
 
 export class TaskModel implements ITask {
 
   type: TASK_TYPE;
-  target_id: string; 
+  data: Object;
   timestamp: string;
 
-  constructor(type: TASK_TYPE, targetId: string) {
+  constructor(type: TASK_TYPE, roomId: string) {
     this.type = type;
-    this.target_id = targetId;
+    this.data = {
+      roomId: roomId
+    };
     this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
   }
 }

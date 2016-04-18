@@ -9,7 +9,7 @@ import {RoomModel, ROOM_SPEED, ROOM_RATING} from './../models/models.room';
   providers: [FirebaseService]
 })
 
-export class GameNew {
+export class RoomNew {
   
   $ref: any;
   
@@ -39,7 +39,7 @@ export class GameNew {
     var roomName = `Name_${$id}`;
     var newRoom = new RoomModel(roomName, $id, ROOM_RATING.R, ROOM_SPEED.FAST);
     
-    $newRoom.set(newRoom, this.onComplete);
+    $newRoom.set(newRoom, this.onComplete.bind(this));
     
     this.goToRoom($id);
   }

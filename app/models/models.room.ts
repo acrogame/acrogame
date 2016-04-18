@@ -48,7 +48,7 @@ export class RoomModel implements IRoom {
     this.speed = speed || ROOM_SPEED.MEDIUM;
     
     this.state = ROOM_STATE.INACTIVE;
-    this.loaded = false;
+    this.loaded = true;
     this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
   }
 }
