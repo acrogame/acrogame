@@ -14,11 +14,9 @@ export class TaskModel implements ITask {
   data: Object;
   timestamp: string;
 
-  constructor(type: TASK_TYPE, roomId: string) {
+  constructor(type: TASK_TYPE, data: Object) {
     this.type = type;
-    this.data = {
-      roomId: roomId
-    };
+    this.data = data;
     this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
   }
 }

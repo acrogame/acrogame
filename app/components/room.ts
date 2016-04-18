@@ -60,7 +60,9 @@ export class Room implements OnInit {
   }
   
   private newGame() {
-    this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, this.roomId))
+    // Todo: in the future we should watch rooms on the server 
+    // rather than relying on the client to add the Task
+    this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, {roomId: this.roomId}))
     this.$gameRef.on('value', ($snap) => {
       console.log($snap.val());
     });
