@@ -104,13 +104,24 @@ h1 {
 
 .container-chat .container-input.fixed {
   top: auto;
-  bottom: 2px;
-  right: 2px;
-  left: 2px;
+  bottom: 0;
+  right: 0;
+  left: 0;
   height: 34px;
   border: 2px solid rgba(0,0,0,0.05);
   background-color: #444;
-  border-radius: 2px;
+}
+
+.container-input input[type=text] {
+  position: relative;
+  display: block;
+  border: none;
+  background: none;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  width: 100%;
 }
 
 .panel {

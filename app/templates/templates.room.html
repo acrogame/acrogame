@@ -8,15 +8,5 @@
     <h1>{{room.name}}</h1>
   </div>
   
-  <div class="container-chat fixed bg-black">
-    <div class="container-messages">
-      <ul class="messages-list">
-        <li *ngFor="#msg of chatUrl | $firebaseevent:'child_added'">
-          dnichols: <strong>{{msg}}</strong>
-        </li>
-      </ul>
-    </div>
-    <div class="container-input fixed"></div>  
-  </div>
-
+  <chat [id]="roomId"></chat>
 </div>

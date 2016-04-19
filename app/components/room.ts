@@ -3,7 +3,8 @@ import {RouteParams}                from 'angular2/router';
 import {FirebaseEventPipe}          from './../pipes/pipes.firebaseevent';
 import {FirebaseService}            from './../services/services.firebase';
 import {Config}                     from './../config/config.acro';
-import {Spinner}                    from './../components/spinner';
+import {Spinner}                    from './spinner';
+import {Chat}                       from './chat';
 import {TaskModel, TASK_TYPE}       from './../models/models.task';
 
 @Component({
@@ -11,7 +12,7 @@ import {TaskModel, TASK_TYPE}       from './../models/models.task';
   templateUrl: 'app/templates/templates.room.html',
   pipes: [FirebaseEventPipe],
   providers: [Config, FirebaseService],
-  directives: [Spinner]
+  directives: [Spinner, Chat]
 })
 
 export class Room implements OnInit {
@@ -64,7 +65,7 @@ export class Room implements OnInit {
     // rather than relying on the client to add the Task
     this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, {roomId: this.roomId}))
     this.$gameRef.on('value', ($snap) => {
-      console.log($snap.val());
+      // console.log($snap.val());
     });
   }
   

@@ -1,0 +1,12 @@
+<div class="container-chat fixed bg-black">
+  <div class="container-messages">
+    <ul class="messages-list">
+      <li *ngFor="#chat of chatUrl + [id] | $firebaseevent:'child_added'">
+        {{chat.userName}}: <strong>{{chat.message}}</strong>
+      </li>
+    </ul>
+  </div>
+  <div class="container-input fixed">
+    <input placeholder="Say something..." type="text" (keyup)="saySomething($event, message)" #message />
+  </div>  
+</div>

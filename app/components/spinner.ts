@@ -11,6 +11,4 @@ import {Component} from 'angular2/core';
     </div>`
 })
 
-export class Spinner { 
-  // anything here?
-}
+export class Spinner {}
