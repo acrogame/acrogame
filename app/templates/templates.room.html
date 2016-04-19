@@ -1,19 +1,22 @@
-<div class="container margin-top">
-  <div>Room</div>
+<div class="container-room">
   
   <div>
     <spinner [show]="loading"></spinner>
   </div>
   
-  <div class="game-board">
+  <div class="container-game fixed gradient-game white shadow">
     <h1>{{room.name}}</h1>
   </div>
   
-  <div>
-    <ul class="messages-list">
-		  <li *ngFor="#msg of chatUrl | $firebaseevent:'child_added'">
-		  	dnichols: <strong>{{msg}}</strong>
-		  </li>
-	  </ul>
+  <div class="container-chat fixed bg-black">
+    <div class="container-messages">
+      <ul class="messages-list">
+        <li *ngFor="#msg of chatUrl | $firebaseevent:'child_added'">
+          dnichols: <strong>{{msg}}</strong>
+        </li>
+      </ul>
+    </div>
+    <div class="container-input fixed"></div>  
   </div>
+
 </div>
