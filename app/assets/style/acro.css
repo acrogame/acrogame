@@ -99,19 +99,20 @@ h1 {
 
 .container-chat.fixed {
   top: 470px;
-  bottom: 0;
+  bottom: 34px;
   z-index: 0;
-  padding-bottom: 14px;
-  overflow-y: scroll;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-y: scroll;  
 }
 
-.container-chat .container-input.fixed {
+.container-input.fixed {
   top: auto;
   bottom: 0;
   right: 0;
   left: 0;
   height: 34px;
-  border: 2px solid rgba(0,0,0,0.05);
+  border-top: 2px solid rgba(0,0,0,0.1);
   background-color: #444;
 }
 
@@ -122,10 +123,10 @@ h1 {
 }
 
 .container-chat .container-messages .messages-list {
-  position: absolute; 
-  bottom: 0;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .container-input input[type=text] {

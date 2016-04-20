@@ -27,10 +27,18 @@ export class Chat implements OnInit {
   
   ngOnInit() {
     this.$chatRef = this.firebase.getRef(`/chats/${this.id}`);
+    this.$chatRef.on('child_added', this.scrollToBottom);
   }
   
   private addMessage(msg: string) {
     var $newMsg = this.$chatRef.push(new ChatModel('me', msg));
+  }
+  
+  private scrollToBottom() {
+    setTimeout(function () {
+      var chatWindow = document.getElementById('scroll-bottom');
+      chatWindow.scrollTop = chatWindow.scrollHeight;  
+    }, 10);
   }
   
   saySomething($event: any, msg: any) {
