@@ -10,7 +10,7 @@ html, body {
   font-size: 14px;
   font-weight: 500;
   color: #555;
-  background-color: #fafafa;
+  background-color: #f9fafb;
 }
 
 a {
@@ -33,7 +33,7 @@ h1 {
 */
 
 .color-white {
-  color: #fff;
+  color: #f9fafb;
 }
 
 /*
@@ -133,7 +133,7 @@ h1 {
   display: block;
   border: none;
   background: none;
-  color: #fff;
+  color: #f9fafb;
   height: 30px;
   line-height: 30px;
   padding: 0;
@@ -193,7 +193,7 @@ h1 {
 .spinner > div {
   width: 18px;
   height: 18px;
-  background-color: #fff;
+  background-color: #f9fafb;
 
   border-radius: 100%;
   display: inline-block;
@@ -312,32 +312,32 @@ h1 {
 }
 
 .white {
-  color: #fff;
+  color: #f9fafb;
 }
 
 .bg-purple {
   background-color: #9b59b6;
-  color: #fff;
+  color: #f9fafb;
 }
 
 .bg-red {
   background-color: #e74c3c;
-  color: #fff;
+  color: #f9fafb;
 }
 
 .bg-green {
   background-color: #2ecc71;
-  color: #fff;
+  color: #f9fafb;
 }
 
 .bg-white {
-  background-color: #fafafa;
+  background-color: #f9fafb;
   color: #555;
 }
 
 .bg-black {
   background-color: #555;
-  color: #fff;
+  color: #f9fafb;
 }
 
 /*
