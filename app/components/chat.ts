@@ -30,8 +30,7 @@ export class Chat implements OnInit {
   }
   
   private addMessage(msg: string) {
-    var $newMsg = this.$chatRef.push();
-    $newMsg.setWithPriority(new ChatModel('me', msg), (0 - Date.now())) // sort desc
+    var $newMsg = this.$chatRef.push(new ChatModel('me', msg));
   }
   
   saySomething($event: any, msg: any) {

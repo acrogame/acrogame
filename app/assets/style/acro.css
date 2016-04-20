@@ -99,7 +99,10 @@ h1 {
 
 .container-chat.fixed {
   top: 470px;
+  bottom: 0;
   z-index: 0;
+  padding-bottom: 14px;
+  overflow-y: scroll;
 }
 
 .container-chat .container-input.fixed {
@@ -110,6 +113,19 @@ h1 {
   height: 34px;
   border: 2px solid rgba(0,0,0,0.05);
   background-color: #444;
+}
+
+.container-chat .container-messages {
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+}
+
+.container-chat .container-messages .messages-list {
+  position: absolute; 
+  bottom: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }
 
 .container-input input[type=text] {

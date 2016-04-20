@@ -13,5 +13,6 @@ export class ChatModel implements IChat {
   constructor(userName: string, message: string) {
     this.userName = userName;
     this.message = message;
+    this.timestamp = window.Firebase.ServerValue.TIMESTAMP;
   }
 }

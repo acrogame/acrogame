@@ -24,14 +24,21 @@ export class FirebaseEventPipe {
     if (!this._fbRef) {
       
       let event = this._getEventFromArgs(args);
+      let reversed = this._getReversedFromArgs(args);
       
       this._fbRef = new Firebase(url);
       
       if (ALLOWED_FIREBASE_EVENTS[event] === ALLOWED_FIREBASE_EVENTS.child_added) {
         this._fbRef.on(event, snapshot => {
+          
           // Wait to create array until value exists
           if (!this._latestValue) this._latestValue = [];
-          this._latestValue.push(snapshot.val());
+          
+          if (reversed) {
+            this._latestValue.unshift(snapshot.val());
+          } else {
+            this._latestValue.push(snapshot.val());  
+          }
 
           this._cdRef.markForCheck();
         });
@@ -71,5 +78,10 @@ export class FirebaseEventPipe {
       argument to the pipe: "value | firebase:child_added".
       See https://www.firebase.com/docs/web/api/query/on.html for supported events.`
 
+  }
+  
+  _getReversedFromArgs(args?: string[]) {
+    var foo = (args[1] && args[1] === 'reversed');
+    return foo;
   }
 }
