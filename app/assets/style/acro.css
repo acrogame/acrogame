@@ -117,13 +117,16 @@ h1 {
 }
 
 .container-chat .container-messages {
+  display: flex;
   position: relative;
   height: 100%;
   overflow: scroll;
+  flex-direction: column;
 }
 
 .container-chat .container-messages .messages-list {
   list-style: none;
+  margin-top: auto;
   margin-bottom: 0;
   padding-left: 5%;
   padding-right: 5%;
