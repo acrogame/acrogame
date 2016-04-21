@@ -57,7 +57,7 @@ export class Room implements OnInit {
   }
   
   ngOnInit() {
-    this.$roomRef.on('value', ($snap) => this.roomLoaded($snap));
+    this.$roomRef.once('value', ($snap) => this.roomLoaded($snap));
   }
   
   private newGame() {
