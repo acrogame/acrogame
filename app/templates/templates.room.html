@@ -4,9 +4,9 @@
     <spinner [show]="loading"></spinner>
   </div>
   
-  <div class="container-game fixed gradient-game white shadow">
-    <h1>{{room.name}}</h1>
-  </div>
+  <!-- The Game -->
+  <game [id]="roomId"></game>
   
+  <!-- Chat area -->
   <chat [id]="roomId"></chat>
 </div>

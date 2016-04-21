@@ -231,6 +231,21 @@ h1 {
 }
 
 /*
+ * Game
+*/
+
+.countdown {
+  display: block;
+  width: 100%;
+}
+
+.countdown .bar {
+  height: 2px;
+  background: #f9fafb;
+  transition: width 1000ms linear;
+}
+
+/*
  * Details
 */
 
