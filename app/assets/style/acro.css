@@ -242,6 +242,7 @@ h1 {
 .countdown .bar {
   height: 2px;
   background: #f9fafb;
+  width: 0%;
   transition: width 1000ms linear;
 }
 
