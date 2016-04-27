@@ -18,13 +18,15 @@ export class Game implements OnInit {
   currentRound: any;
   currentLetters: any;
   
+  playing: boolean;
+  
   $taskRef: any;
   $gameRef: any;
   
   countdownPercent: string;
   
   constructor(private firebaseService: FirebaseService) {
-    
+    this.playing = false;
   }
   
   ngOnInit() {
@@ -40,6 +42,7 @@ export class Game implements OnInit {
       
       this.currentRound = value;
       this.currentLetters = value.letters.chars;
+      this.playing = value.playing;
      
       if (value) {
         // console.log(value);
