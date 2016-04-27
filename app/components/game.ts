@@ -16,6 +16,7 @@ export class Game implements OnInit {
   
   currentGame: any;
   currentRound: any;
+  currentLetters: any;
   
   $taskRef: any;
   $gameRef: any;
@@ -29,13 +30,16 @@ export class Game implements OnInit {
   ngOnInit() {
     var gamePath = `/games/${this.id}/currentRound`;
     var taskPath = '/queue/tasks';
+    
     this.$gameRef = this.firebaseService.getRef(gamePath);
     this.$taskRef = this.firebaseService.getRef(taskPath);
     
     this.$gameRef.on('value', ($snap) => {
       
       var value = $snap.val();
+      
       this.currentRound = value;
+      this.currentLetters = value.letters.chars;
      
       if (value) {
         // console.log(value);

@@ -6,4 +6,8 @@
   
   <button style="button" (click)="join()">Join</button>
   <p>Nothin' yet.</p>    
+  
+  <div class="container-letters">
+    <span *ngFor="#letter of currentLetters">{{letter}}</span>
+  </div>
 </div>
