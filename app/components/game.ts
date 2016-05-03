@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from 'angular2/core';
 import {FirebaseService}  from './../services/services.firebase';
 import {TaskModel, TASK_TYPE} from './../models/models.task';
-// import {IGame} from './../models/models.game';
 
 @Component({
   selector: 'game',
@@ -30,7 +29,7 @@ export class Game implements OnInit {
   }
   
   ngOnInit() {
-    var gamePath = `/games/${this.id}/currentRound`;
+    var gamePath = `/games/${this.id}/round`;
     var taskPath = '/queue/tasks';
     
     this.$gameRef = this.firebaseService.getRef(gamePath);
@@ -41,14 +40,12 @@ export class Game implements OnInit {
       var value = $snap.val();
       
       this.currentRound = value;
-      this.currentLetters = value.letters.chars;
+      this.currentLetters = (value.letters) ? value.letters.chars : null;
       this.playing = value.playing;
      
       if (value) {
-        // console.log(value);
         var percent = Math.floor((value.countdown / value.countdownStart) * 100);
         this.countdownPercent = `${percent}%`;
-        // console.log(this.countdownPercent);
       }
     });
   }
@@ -62,18 +59,18 @@ export class Game implements OnInit {
     // Todo: in the future we should watch rooms on the server 
     // rather than relying on the client to add the Task
     this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, {roomId: this.id}))
-    // this.$gameRef.on('value', () => this.watchGame());
   }
   
   private watchGame() {
-    console.log(this.$gameRef.val());
+
     this.$gameRef.on('child_changed', ($snap) => {
       this.currentGame = $snap.val();
-      console.log(this.currentGame);
+      
       var percent = (
         this.currentGame.currentRound.countdown / 
         this.currentGame.currentRound.countdownStart
       );
+      
       this.countdownPercent = `${percent}%`;
     });
   }
