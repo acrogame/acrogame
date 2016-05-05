@@ -11,4 +11,8 @@
   <div class="container-letters bounceInDown animated" *ngIf="currentLetters">
     <span *ngFor="#letter of currentLetters">{{letter}}</span>
   </div>
+  
+  <div class="container-category" *ngIf="currentCategory">
+    Category: {{currentCategory}}
+  </div>
 </div>

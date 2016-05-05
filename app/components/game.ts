@@ -16,11 +16,13 @@ export class Game implements OnInit {
   currentGame: any;
   currentRound: any;
   currentLetters: any;
+  currentValidator: any;
+  currentCategory: any;
   
   playing: boolean;
   
   $taskRef: any;
-  $gameRef: any;
+  $roundRef: any;
   
   countdownPercent: string;
   
@@ -29,24 +31,26 @@ export class Game implements OnInit {
   }
   
   ngOnInit() {
-    var gamePath = `/games/${this.id}/round`;
+    var roundPath = `/games/${this.id}/round`;
     var taskPath = '/queue/tasks';
     
-    this.$gameRef = this.firebaseService.getRef(gamePath);
+    this.$roundRef = this.firebaseService.getRef(roundPath);
     this.$taskRef = this.firebaseService.getRef(taskPath);
     
-    this.$gameRef.on('value', ($snap) => {
+    this.$roundRef.on('value', ($snap) => {
       
       var value = $snap.val();
       
+      if (!value) return;
+      
       this.currentRound = value;
       this.currentLetters = (value.letters) ? value.letters.chars : null;
+      this.currentValidator = (value.letters) ? value.letters.validator : null;
+      this.currentCategory = (value.category) ? value.category : null;
       this.playing = value.playing;
-     
-      if (value) {
-        var percent = Math.floor((value.countdown / value.countdownStart) * 100);
-        this.countdownPercent = `${percent}%`;
-      }
+      
+      var percent = Math.floor((value.countdown / value.countdownStart) * 100);
+      this.countdownPercent = `${percent}%`;
     });
   }
   
@@ -63,7 +67,7 @@ export class Game implements OnInit {
   
   private watchGame() {
 
-    this.$gameRef.on('child_changed', ($snap) => {
+    this.$roundRef.on('child_changed', ($snap) => {
       this.currentGame = $snap.val();
       
       var percent = (
