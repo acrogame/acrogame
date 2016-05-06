@@ -103,7 +103,7 @@ h1 {
   z-index: 0;
   padding-left: 0;
   padding-right: 0;
-  overflow-y: scroll;  
+  overflow: hidden;
 }
 
 .container-input.fixed {
@@ -120,7 +120,7 @@ h1 {
   display: flex;
   position: relative;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-direction: column;
 }
 
