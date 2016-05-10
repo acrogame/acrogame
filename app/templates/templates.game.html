@@ -8,8 +8,7 @@
     <button style="button" (click)="join()">Join</button>
   </div>
   
-  <!--<div class="container-letters bounceInDown animated" *ngIf="currentLetters">-->
-  <div class="container-letters bounceInDown animated">
+  <div class="container-letters bounceInDown animated" *ngIf="currentLetters">
     <svg>
       <text class="acroletters" y="84">
         <tspan *ngFor="let letter of currentLetters">
@@ -24,7 +23,7 @@
   </div>
   
   <div class="pin-bottom">
-    <input class="acro text animated animation-zoom" placeholder="Type your answer" />
+    <input class="acro text animated fast animation-zoom" placeholder="Type your answer" [class.show]="currentLetters" />
   </div>
   
 </div>
