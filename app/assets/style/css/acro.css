@@ -30,6 +30,12 @@ input:focus,
 *:focus {
   outline: none; }
 
+svg {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
 /*
  * Fonts
 */
@@ -425,5 +431,13 @@ input.acro.invalid {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px; }
+
+svg text.acroletters {
+  width: 100%;
+  font: bold 84px 'Arial';
+  stroke: #555;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  fill: #fff; }
 
 /*# sourceMappingURL=acro.css.map */

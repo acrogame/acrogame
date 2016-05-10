@@ -1,0 +1,14 @@
+@import 'colors';
+
+svg {
+  text {
+    &.acroletters {
+      width: 100%;
+      font: bold 84px 'Arial';
+      stroke: $co-charcoal;
+      stroke-width: 3px;
+      stroke-linejoin: round;
+      fill: $co-white;
+    }
+  }
+}

@@ -37,6 +37,10 @@ export class Game implements OnInit {
     this.$roundRef = this.firebaseService.getRef(roundPath);
     this.$taskRef = this.firebaseService.getRef(taskPath);
     
+    /**
+     * Watch for changes here!
+     */
+    
     this.$roundRef.on('value', ($snap) => {
       
       var value = $snap.val();
@@ -44,7 +48,7 @@ export class Game implements OnInit {
       if (!value) return;
       
       this.currentRound = value;
-      this.currentLetters = (value.letters) ? value.letters.chars : null;
+      this.currentLetters = (value.letters) ? value.letters.chars : ['A', 'B', 'C', 'D'];
       this.currentValidator = (value.letters) ? value.letters.validator : null;
       this.currentCategory = (value.category) ? value.category : null;
       this.playing = value.playing;
@@ -68,6 +72,7 @@ export class Game implements OnInit {
   private watchGame() {
 
     this.$roundRef.on('child_changed', ($snap) => {
+      
       this.currentGame = $snap.val();
       
       var percent = (
