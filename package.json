@@ -4,7 +4,7 @@
   "description": "The Acro client",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "grunt sass && concurrently \"grunt sass\" \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
@@ -18,13 +18,16 @@
     "bower": "^1.7.7",
     "es6-shim": "^0.35.0",
     "firebase": "^2.4.2",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.2",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.6",
     "systemjs": "^0.19.24",
-    "zone.js": "^0.6.6"
+    "zone.js": "^0.6.12"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
     "lite-server": "^2.1.0",
     "typescript": "^1.8.9",
     "typings": "^0.7.9"
