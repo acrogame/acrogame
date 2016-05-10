@@ -20,11 +20,11 @@ export class FirebaseEventPipe {
     this._cdRef = cdRef;
   }
   
-  transform(url: string, args: string[]): any {
+  transform(url: string, arg: string): any {
     if (!this._fbRef) {
       
-      let event = this._getEventFromArgs(args);
-      let reversed = this._getReversedFromArgs(args);
+      let event = arg;
+      // let reversed = this._getReversedFromArgs(arg);
       
       this._fbRef = new Firebase(url);
       
@@ -34,11 +34,13 @@ export class FirebaseEventPipe {
           // Wait to create array until value exists
           if (!this._latestValue) this._latestValue = [];
           
-          if (reversed) {
-            this._latestValue.unshift(snapshot.val());
-          } else {
-            this._latestValue.push(snapshot.val());  
-          }
+          this._latestValue.push(snapshot.val());
+          
+          // if (reversed) {
+          //   this._latestValue.unshift(snapshot.val());
+          // } else {
+          //   this._latestValue.push(snapshot.val());  
+          // }
 
           this._cdRef.markForCheck();
         });
@@ -66,22 +68,22 @@ export class FirebaseEventPipe {
     }
   }
 
-  _getEventFromArgs(args?: string[]) {
-    if (args[0] && args[0][0] === '"') {
-      args[0] = args[0].replace(/"/g, '');
-    }
-    if (args && typeof ALLOWED_FIREBASE_EVENTS[args[0]] === 'number') {
-      return args[0];
-    }
-    throw `Not a valid event to listen to: ${args[0]}.
-      Please provide a valid event, such as "child_added", by adding it as an
-      argument to the pipe: "value | firebase:child_added".
-      See https://www.firebase.com/docs/web/api/query/on.html for supported events.`
+  // _getEventFromArgs(args?: string[]) {
+  //   if (args && args[0] && args[0][0] === '"') {
+  //     args[0] = args[0].replace(/"/g, '');
+  //   }
+  //   if (args && typeof ALLOWED_FIREBASE_EVENTS[args[0]] === 'number') {
+  //     return args[0];
+  //   }
+  //   throw `Not a valid event to listen to: ${args[0]}.
+  //     Please provide a valid event, such as "child_added", by adding it as an
+  //     argument to the pipe: "value | firebase:child_added".
+  //     See https://www.firebase.com/docs/web/api/query/on.html for supported events.`
 
-  }
+  // }
   
-  _getReversedFromArgs(args?: string[]) {
-    var foo = (args[1] && args[1] === 'reversed');
-    return foo;
-  }
+  // _getReversedFromArgs(args?: string[]) {
+  //   var foo = (args[1] && args[1] === 'reversed');
+  //   return foo;
+  // }
 }
