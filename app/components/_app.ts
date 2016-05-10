@@ -2,10 +2,10 @@
 
 import {
   RouteConfig, 
-  ROUTER_DIRECTIVES, 
-  Location
+  ROUTER_DIRECTIVES 
 }                     from 'angular2/router';
 import {Component}    from 'angular2/core';
+import {Location}     from 'angular2/platform/common';
 import {Home}         from './home';
 import {About}        from './about';
 import {Room}         from './room';
@@ -62,7 +62,7 @@ export class AppComponent {
     this.location = location;
   }
   
-  showGradient():boolean {
+  showGradient(): boolean {
     var currentPath = this.location.path();
     // If we're in a room-related path
     if (currentPath.indexOf('/room') === 0) {
