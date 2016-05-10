@@ -1,0 +1,30 @@
+@import 'colors';
+@import 'mixins';
+@import 'effects';
+
+input {
+ 
+  &.acro {
+    
+    &.text {
+      display: block;
+      height: 3em;
+      line-height: 3em;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      font-size: 2em;
+      font-weight: 700;
+      background-color: $co-white;
+      color: $co-charcoal;
+      border: 5px solid #5A4097;
+      @include rounded(2em);
+    }
+    
+    &.invalid {
+      border-color: $co-red-accent;
+      color: $co-red;
+      @include shake();
+    }
+  }
+}

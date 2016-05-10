@@ -4,7 +4,7 @@
   "description": "The Acro client",
   "main": "app.js",
   "scripts": {
-    "start": "grunt sass && concurrently \"grunt sass\" \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "grunt sass && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
