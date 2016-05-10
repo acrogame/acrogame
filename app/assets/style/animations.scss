@@ -84,6 +84,27 @@
   animation-name: bounceInDown;
 }
 
+// Zoom-in!
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animation-zoom {
+  display: none;
+  &.show {
+    display: block;
+    animation-name: zoomIn;  
+  }
+}
+
 // Shake!
 
 // https://css-tricks.com/snippets/css/shake-css-keyframe-animation/

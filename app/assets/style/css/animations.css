@@ -59,9 +59,9 @@
     transform: scale3d(0.3, 0.3, 0.3); }
   50% {
     opacity: 1; } }
-.effect-zoom {
+.animation-zoom {
   display: none; }
-  .effect-zoom.show {
+  .animation-zoom.show {
     display: block;
     animation-name: zoomIn; }
 
@@ -75,4 +75,4 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0); } }
 
-/*# sourceMappingURL=effects.css.map */
+/*# sourceMappingURL=animations.css.map */

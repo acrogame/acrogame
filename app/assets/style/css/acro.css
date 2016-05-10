@@ -382,6 +382,18 @@ input:focus,
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown; }
 
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+  50% {
+    opacity: 1; } }
+.animation-zoom {
+  display: none; }
+  .animation-zoom.show {
+    display: block;
+    animation-name: zoomIn; }
+
 @keyframes shakey {
   10%, 90% {
     transform: translate3d(-1px, 0, 0); }
@@ -392,7 +404,6 @@ input:focus,
   40%, 60% {
     transform: translate3d(4px, 0, 0); } }
 input.acro.text {
-  display: block;
   height: 2.5em;
   line-height: 2.5em;
   width: 100%;
