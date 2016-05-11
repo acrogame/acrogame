@@ -32,7 +32,6 @@ input:focus,
 
 svg {
   display: block;
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto; }
 
@@ -434,7 +433,7 @@ input.acro.invalid {
 
 svg text.acroletters {
   width: 100%;
-  font: bold 84px 'Arial';
+  font: bold 84px 'Catamaran';
   stroke: #555;
   stroke-width: 3px;
   stroke-linejoin: round;

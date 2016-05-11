@@ -48,7 +48,7 @@ export class Game implements OnInit {
       if (!value) return;
       
       this.currentRound = value;
-      this.currentLetters = (value.letters) ? value.letters.chars : ['A', 'B', 'C', 'D'];
+      this.currentLetters = (value.letters) ? value.letters.chars : null;
       this.currentValidator = (value.letters) ? value.letters.validator : null;
       this.currentCategory = (value.category) ? value.category : null;
       this.playing = value.playing;
