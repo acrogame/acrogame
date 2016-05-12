@@ -4,10 +4,30 @@ svg {
   text {
     &.acroletters {
       width: 100%;
-      font: bold 96px 'Catamaran';
+      font: bold 112px 'Catamaran';
       fill: $co-white;
       fill-opacity: 1;
-      text-shadow: 9px 9px 18px rgba(0, 0, 0, 0.35);
+      text-shadow: 9px 9px 18px rgba(0, 0, 0, 0.25);
     }
   }
+}
+
+.label {
+  font-size: 2em;
+  font-weight: 700;
+  color: $co-white;
+  text-shadow: 0px 0px 1px $co-purple-accent;
+}
+
+.faded {
+  font-weight: 700;
+  opacity: 0.5;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+}
+
+.unselectable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Future */
 }

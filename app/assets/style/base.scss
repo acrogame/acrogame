@@ -3,8 +3,10 @@
 */
 
 @import 'colors';
+@import 'mixins';
 
-html, body {
+html, 
+body {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -51,7 +53,7 @@ svg {
 }
 
 /*
- * Navigation
+ * Navbar
 */
 
 .navbar {
@@ -63,13 +65,19 @@ svg {
   line-height: 70px;
   z-index: 1;
   
-  /*transition: background 1000ms;*/
+  a {
+    opacity: 0.15;
+    transition: opacity 500ms;
+    
+    &.float-right {
+      margin-left: 25px;
+    }
+    
+    &:hover, &:active {
+      opacity: 1;
+    }
+  }
 }
-
-.navbar a.float-right {
-  margin-left: 25px;
-}
-
 /*
  * Cards
 */
@@ -138,14 +146,13 @@ svg {
 }
 
 .container-chat .container-messages .messages-list {
-  list-style: none;
   margin-top: auto;
   margin-bottom: 0;
 }
 
 .messages-list {
-  li {
-    height: 2em;
+  div {
+    font-size: 0.9em;
     line-height: 2em;
     margin-bottom: 0px;
     font-weight: 300;
@@ -153,7 +160,7 @@ svg {
     padding-right: 5%;
   }
   
-  li:nth-child(odd) {
+  div:nth-child(odd) {
     background-color: rgba(0,0,0,0.05);
   }
 }
@@ -195,13 +202,17 @@ svg {
   font-weight: 700;
   font-size: 2em;
   color: #fff;
-  /*text-shadow: */
 }
 
 .gradient {
   background: $co-purple; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, $co-purple ,$co-red); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, $co-purple ,$co-red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  // For the navbar
+  a {
+    opacity: 1 !important;
+  }
 }
 
 .gradient-game {
@@ -266,10 +277,12 @@ svg {
 }
 
 .countdown .bar {
-  height: 2px;
-  background: $co-grey;
+  height: 6px;
   width: 0%;
   transition: width 1000ms linear;
+  @include rounded(3px);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  margin-top: 20px;
 }
 
 /*
@@ -314,7 +327,7 @@ svg {
 }
 
 .shadow {
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.25);
 }
 
 .pin-bottom {

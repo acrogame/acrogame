@@ -5,27 +5,23 @@
     <div class="child-flex container-flex flexcolumn">
       <div class="child-flex container-flex flexrow">
         <!-- The numeric value of the countdown -->
-        <div class="child-flex quarter centered" [hidden]="currentCountdown && currentCountdown < 0">
+        <div class="child-flex quarter centered label faded" [hidden]="currentCountdown && currentCountdown < 0">
           {{currentCountdown}}
         </div>
         <!-- Playing round countdown -->
         <div class="child-flex centered">
           <div class="countdown">
-            <div class="bar" [ngStyle]="{width: countdownPercent}"></div>
+            <div class="bar gradient" [ngStyle]="{width: countdownPercent}"></div>
           </div>
         </div>
         <!-- Round Information -->
-        <div class="child-flex quarter centered">Round Info</div>
+        <div class="child-flex quarter centered label faded">Round Info</div>
       </div>
       <div class="child-flex container-flex flexrow">
-        <!-- TBA -->
-        <div class="child-flex centered">
-          <!-- Maybe info about total # of players answered -->
-        </div>
         <div class="child-flex centered">
           <!-- Category Info -->
           <div class="container-category" *ngIf="currentCategory">
-            Category: {{currentCategory}}
+            "{{currentCategory}}"
           </div>
         </div>
       </div>
@@ -34,7 +30,7 @@
       <!-- The Letters -->
       <div class="container-letters bounceInDown animated" *ngIf="currentLetters">
         <svg>
-          <text class="acroletters" x="50%" y="50%" text-anchor="middle">
+          <text class="acroletters unselectable" x="50%" y="50%" text-anchor="middle">
             <tspan *ngFor="let letter of currentLetters">
               {{letter}}
             </tspan>
