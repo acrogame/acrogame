@@ -8,6 +8,10 @@
     <button style="button" (click)="join()">Join</button>
   </div>
   
+  <div class="container-category" *ngIf="currentCategory">
+    Category: {{currentCategory}}
+  </div>
+  
   <div class="container-letters bounceInDown animated" *ngIf="currentLetters">
     <svg>
       <text class="acroletters" x="50%" y="50%" text-anchor="middle">
@@ -16,10 +20,6 @@
         </tspan>
       </text>
     </svg>
-  </div>
-  
-  <div class="container-category" *ngIf="currentCategory">
-    Category: {{currentCategory}}
   </div>
   
   <div class="pin-bottom">
