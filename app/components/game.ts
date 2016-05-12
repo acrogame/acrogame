@@ -15,6 +15,8 @@ export class Game implements OnInit {
   
   currentGame: any;
   currentRound: any;
+  currentCountdown: any;
+  currentRoundType: any;
   currentLetters: any;
   currentValidator: any;
   currentCategory: any;
@@ -48,6 +50,8 @@ export class Game implements OnInit {
       if (!value) return;
       
       this.currentRound = value;
+      this.currentRoundType = (value.type) ? value.type : null;
+      this.currentCountdown = (value.countdown) ? value.countdown : 0;
       this.currentLetters = (value.letters) ? value.letters.chars : null;
       this.currentValidator = (value.letters) ? value.letters.validator : null;
       this.currentCategory = (value.category) ? value.category : null;
@@ -80,7 +84,7 @@ export class Game implements OnInit {
         this.currentGame.currentRound.countdownStart
       );
       
-      this.countdownPercent = `${percent}%`;
+      this.countdownPercent = `${Math.floor(percent)}%`;
     });
   }
 }

@@ -1,0 +1,35 @@
+/**
+ * Flexbox containers
+ */
+ 
+ .container-flex {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   
+   &.flexrow {
+     flex-direction: row;
+   }
+   
+   &.flexcolumn {
+     flex-direction: column;
+   }
+   
+   .child-flex {
+     flex: 1;
+     flex-grow: 4;
+     justify-content: center;
+     
+     &.centered {
+       text-align: center;
+     }
+     
+     &.half {
+       flex-grow: 4;
+     }
+     
+     &.quarter {
+       flex-grow: 1;
+     }
+   }
+}
