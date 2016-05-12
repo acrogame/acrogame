@@ -3,7 +3,7 @@
     <div id="scroll-bottom" class="container-messages">
       <ul class="messages-list">
         <li *ngFor="let chat of chatUrl + [id] | $firebaseevent:'child_added'">
-          {{chat.userName}}: <strong>{{chat.message}}</strong>
+          {{chat.userName}}: {{chat.message}}
         </li>
       </ul>
     </div>

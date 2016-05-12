@@ -141,8 +141,21 @@ svg {
   list-style: none;
   margin-top: auto;
   margin-bottom: 0;
-  padding-left: 5%;
-  padding-right: 5%;
+}
+
+.messages-list {
+  li {
+    height: 2em;
+    line-height: 2em;
+    margin-bottom: 0px;
+    font-weight: 300;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  li:nth-child(odd) {
+    background-color: rgba(0,0,0,0.05);
+  }
 }
 
 .container-input input[type=text] {

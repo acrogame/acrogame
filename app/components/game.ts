@@ -85,7 +85,7 @@ export class Game implements OnInit {
   
   onKeyUp($event: any, answer: any) {
     // If they pressed Enter....
-    if ($event.keyCode === 13 && answer.value) {
+    if ($event.keyCode === 13 && answer.value) {  
       // And the answer is valid....
       if (this.validateAnswer(answer.value)) {
         // todo: abc123 represents a user
