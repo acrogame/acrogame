@@ -44,7 +44,7 @@
     </div>
     <div class="child-flex centered">
       <!-- Answer here! -->
-      <input class="acro text animated fast animation-zoom" placeholder="Type your answer and press Enter" [class.show]="currentLetters" />
+      <input class="acro text animated fast animation-zoom" placeholder="Type your answer and press Enter" [class.show]="currentLetters" [class.valid]="answerSubmitted && answerValid" [class.invalid]= "answerSubmitted && !answerValid" (keyup)="onKeyUp($event, answer)" #answer/>
     </div>
   </div>
   
@@ -68,4 +68,6 @@
     Results! ({{currentCountdown}})
   </div>
   
+  <!-- Background effects -->
+  <div class="game-background-effects" [class.answered]="answerSubmitted && answerValid"></div>
 </div>

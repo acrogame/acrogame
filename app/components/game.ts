@@ -22,6 +22,8 @@ export class Game implements OnInit {
   currentCategory: any;
   
   playing: boolean;
+  answerSubmitted: boolean;
+  answerValid: boolean;
   
   $taskRef: any;
   $roundRef: any;
@@ -30,6 +32,8 @@ export class Game implements OnInit {
   
   constructor(private firebaseService: FirebaseService) {
     this.playing = false;
+    this.answerSubmitted = false;
+    this.answerValid = false;
   }
   
   ngOnInit() {
@@ -49,6 +53,11 @@ export class Game implements OnInit {
       
       if (!value) return;
       
+      // If this is not a playing round, reset the Round
+      if (value.type && value.type !== 1) {
+        this.reset();
+      }
+      
       this.currentRound = value;
       this.currentRoundType = (value.type) ? value.type : null;
       this.currentCountdown = (value.countdown) ? value.countdown : 0;
@@ -60,6 +69,32 @@ export class Game implements OnInit {
       var percent = Math.floor((value.countdown / value.countdownStart) * 100);
       this.countdownPercent = `${percent}%`;
     });
+  }
+  
+  private reset() {
+    this.answerSubmitted = false;
+    this.answerValid = false;
+  }
+  
+  private validateAnswer(answer: string): boolean {
+    var re = new RegExp(this.currentValidator, 'gi');
+    this.answerSubmitted = true;
+    this.answerValid = re.test(answer);
+    return this.answerValid;
+  }
+  
+  onKeyUp($event: any, answer: any) {
+    // If they pressed Enter....
+    if ($event.keyCode === 13 && answer.value) {
+      // And the answer is valid....
+      if (this.validateAnswer(answer.value)) {
+        // todo: abc123 represents a user
+        this.$roundRef.child('answers/' + 'abc123').set({
+          'name': 'me',
+          'answer': answer.value
+        });
+      }
+    }
   }
   
   join() {

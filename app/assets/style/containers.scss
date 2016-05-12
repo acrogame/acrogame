@@ -1,5 +1,8 @@
+@import 'colors';
+@import 'mixins';
+
 /**
- * Flexbox containers
+ *  Flexbox containers
  */
  
  .container-flex {
@@ -32,4 +35,28 @@
        flex-grow: 1;
      }
    }
+}
+
+/**
+ *  Game Background effects
+ */
+
+.game-background-effects {
+  background-color: transparent;
+  opacity: 1;
+  position: absolute;
+  z-index: -1;
+  top: -70px;
+  left: 0;
+  right: 0;
+  height: 470px;
+  pointer-events: none !important;
+  
+  &.answered {
+    background: $co-green; /* fallback for old browsers */
+    background: -webkit-radial-gradient(400px at center bottom, $co-green-accent, $co-green);
+    background: radial-gradient(400px at center bottom, $co-green-accent, $co-green);
+    transition: opacity 3000ms ease-in-out;
+    opacity: 0;
+  }
 }

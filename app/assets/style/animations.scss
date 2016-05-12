@@ -103,10 +103,12 @@
 }
 
 .animation-zoom {
-  display: none;
+  display: none;  
   &.show {
     display: block;
-    animation-name: zoomIn;  
+    &:not(.valid) {
+      animation-name: zoomIn; 
+    }
   }
 }
 

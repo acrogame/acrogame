@@ -19,12 +19,17 @@ input {
       border: 5px solid #5A4097;
       text-align: center;
       @include rounded(2em);
-    }
-    
-    &.invalid {
-      border-color: $co-red-accent;
-      color: $co-red;
-      @include shake();
+      
+      &.valid {
+        border: 5px solid $co-green-accent;
+        color: $co-charcoal;
+      }
+      
+      &.invalid {
+        border: 5px solid $co-red-accent;
+        color: $co-red;
+        @include shake();
+      }
     }
   }
 }
