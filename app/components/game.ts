@@ -37,6 +37,7 @@ export class Game implements OnInit {
   }
   
   ngOnInit() {
+    
     var roundPath = `/games/${this.id}/round`;
     var taskPath = '/queue/tasks';
     
@@ -102,7 +103,7 @@ export class Game implements OnInit {
     this.newGame();
   }
   
-  newGame() {
+  private newGame() {
     // Todo: in the future we should watch rooms on the server 
     // rather than relying on the client to add the Task
     this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, {roomId: this.id}))
