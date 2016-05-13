@@ -63,7 +63,7 @@ export class Game implements OnInit {
       this.currentRoundType = (value.type) ? value.type : null;
       this.currentCountdown = (value.countdown) ? value.countdown : 0;
       this.currentLetters = (value.letters) ? value.letters.chars : null;
-      this.currentValidator = (value.letters) ? value.letters.validator : null;
+      this.currentValidator = (value.letters) ? new RegExp(value.letters.validator, 'gi') : null;
       this.currentCategory = (value.category) ? value.category : null;
       this.playing = value.playing;
       
@@ -78,9 +78,8 @@ export class Game implements OnInit {
   }
   
   private validateAnswer(answer: string): boolean {
-    var re = new RegExp(this.currentValidator, 'gi');
     this.answerSubmitted = true;
-    this.answerValid = re.test(answer);
+    this.answerValid = (this.currentValidator) ? this.currentValidator.test(answer) : false;
     return this.answerValid;
   }
   
