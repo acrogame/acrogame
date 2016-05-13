@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from 'angular2/core';
 import {FirebaseService}  from './../services/services.firebase';
+import {Convert} from './../services/Convert.services';
 import {TaskModel, TASK_TYPE} from './../models/models.task';
 
 @Component({
   selector: 'game',
   templateUrl: 'app/templates/templates.game.html',
-  providers: [FirebaseService],
+  providers: [FirebaseService, Convert],
   inputs: ['id']
 })
 
@@ -15,23 +16,20 @@ export class Game implements OnInit {
   
   currentGame: any;
   currentRound: any;
-  currentCountdown: any;
-  currentRoundType: any;
-  currentLetters: any;
-  currentValidator: any;
-  currentCategory: any;
-  
-  playing: boolean;
+  answers: any[];
+  roundType: number;
   answerSubmitted: boolean;
   answerValid: boolean;
   
   $taskRef: any;
   $roundRef: any;
+  $answersRef: any;
   
   countdownPercent: string;
   
   constructor(private firebaseService: FirebaseService) {
-    this.playing = false;
+    this.currentRound = {};
+    this.roundType = 0;
     this.answerSubmitted = false;
     this.answerValid = false;
   }
@@ -40,9 +38,11 @@ export class Game implements OnInit {
     
     var roundPath = `/games/${this.id}/round`;
     var taskPath = '/queue/tasks';
+    var answerPath = `/answers/${this.id}`;
     
     this.$roundRef = this.firebaseService.getRef(roundPath);
     this.$taskRef = this.firebaseService.getRef(taskPath);
+    this.$answersRef = this.firebaseService.getRef(answerPath)
     
     /**
      * Watch for changes here!
@@ -59,16 +59,20 @@ export class Game implements OnInit {
         this.reset();
       }
       
-      this.currentRound = value;
-      this.currentRoundType = (value.type) ? value.type : null;
-      this.currentCountdown = (value.countdown) ? value.countdown : 0;
-      this.currentLetters = (value.letters) ? value.letters.chars : null;
-      this.currentValidator = (value.letters) ? new RegExp(value.letters.validator, 'gi') : null;
-      this.currentCategory = (value.category) ? value.category : null;
-      this.playing = value.playing;
+      // If this is a voting round, let's get the answers
+      if (value.type && value.type === 2) {
+        this.answers = Convert.objectToArray(value.answers);
+      }
       
       var percent = Math.floor((value.countdown / value.countdownStart) * 100);
+      
+      this.currentRound = value;
+      this.currentRound.countdown = (value.countdown) ? value.countdown : 0;
+      this.currentRound.letters = (value.letters) ? value.letters.chars : null;
+      this.currentRound.validator = (value.letters) ? new RegExp(value.letters.validator, 'gi') : null;
+      this.currentRound.category = (value.category) ? value.category : null;
       this.countdownPercent = `${percent}%`;
+      this.roundType = value.type;
     });
   }
   
@@ -79,27 +83,8 @@ export class Game implements OnInit {
   
   private validateAnswer(answer: string): boolean {
     this.answerSubmitted = true;
-    this.answerValid = (this.currentValidator) ? this.currentValidator.test(answer) : false;
+    this.answerValid = (this.currentRound.validator) ? this.currentRound.validator.test(answer) : false;
     return this.answerValid;
-  }
-  
-  onKeyUp($event: any, answer: any) {
-    // If they pressed Enter....
-    if ($event.keyCode === 13 && answer.value) {  
-      // And the answer is valid....
-      if (this.validateAnswer(answer.value)) {
-        // todo: abc123 represents a user
-        this.$roundRef.child('answers/' + 'abc123').set({
-          'name': 'me',
-          'answer': answer.value
-        });
-      }
-    }
-  }
-  
-  join() {
-    // todo, get player info and pass it along
-    this.newGame();
   }
   
   private newGame() {
@@ -121,5 +106,36 @@ export class Game implements OnInit {
       
       this.countdownPercent = `${Math.floor(percent)}%`;
     });
+  }
+  
+  onKeyUp($event: any, answer: any) {
+    // If they pressed Enter....
+    if ($event.keyCode === 13 && answer.value) {  
+      // And the answer is valid....
+      if (this.validateAnswer(answer.value)) {
+        // todo: abc123 represents a user
+        this.$roundRef.child('answers/' + 'abc123').set({
+          'userId': 'abc123',
+          'name': 'me',
+          'answer': answer.value
+        });
+      }
+    }
+  }
+  
+  join() {
+    // todo, get player info and pass it along
+    this.newGame();
+  }
+  
+  vote(answer?: any) {
+    try {
+      // todo: a real userId
+      var userId = 'abc123';
+      var $voteRef = this.$roundRef.child(`votes/${userId}`);
+      $voteRef.set(userId);
+    } catch (ex) {
+      console.error(ex);
+    }
   }
 }

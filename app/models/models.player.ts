@@ -1,4 +1,4 @@
-import {IUser} from './models.user';
+import {IUser, UserModel} from './models.user';
 
 export class PlayerModel extends UserModel {
   

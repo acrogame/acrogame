@@ -1,12 +1,12 @@
 <div class="container-game fixed gradient-game white shadow">
   
   <!-- Playing Round -->
-  <div class="container-flex flexcolumn" *ngIf="currentRoundType === 1">
+  <div class="container-flex flexcolumn" *ngIf="currentRound.type === 1">
     <div class="child-flex container-flex flexcolumn">
       <div class="child-flex container-flex flexrow">
         <!-- The numeric value of the countdown -->
-        <div class="child-flex quarter centered label faded" [hidden]="currentCountdown && currentCountdown < 0">
-          {{currentCountdown}}
+        <div class="child-flex quarter centered label faded" [hidden]="currentRound.countdown && currentRound.countdown < 0">
+          {{currentRound.countdown}}
         </div>
         <!-- Playing round countdown -->
         <div class="child-flex centered">
@@ -20,18 +20,18 @@
       <div class="child-flex container-flex flexrow">
         <div class="child-flex centered">
           <!-- Category Info -->
-          <div class="container-category" *ngIf="currentCategory">
-            "{{currentCategory}}"
+          <div class="container-category" *ngIf="currentRound.category">
+            "{{currentRound.category}}"
           </div>
         </div>
       </div>
     </div>
     <div class="child-flex centered">
       <!-- The Letters -->
-      <div class="container-letters bounceInDown animated" *ngIf="currentLetters">
+      <div class="container-letters bounceInDown animated" *ngIf="currentRound.letters">
         <svg>
           <text class="acroletters unselectable" x="50%" y="50%" text-anchor="middle">
-            <tspan *ngFor="let letter of currentLetters">
+            <tspan *ngFor="let letter of currentRound.letters">
               {{letter}}
             </tspan>
           </text>
@@ -40,14 +40,14 @@
     </div>
     <div class="child-flex centered">
       <!-- Answer here! -->
-      <input class="acro text animated fast animation-zoom" placeholder="Type your answer and press Enter" [class.show]="currentLetters" [class.valid]="answerSubmitted && answerValid" [class.invalid]= "answerSubmitted && !answerValid" (keyup)="onKeyUp($event, answer)" #answer/>
+      <input class="acro text animated fast animation-zoom" placeholder="Type your answer and press Enter" [class.show]="currentRound.letters" [class.valid]="answerSubmitted && answerValid" [class.invalid]= "answerSubmitted && !answerValid" (keyup)="onKeyUp($event, answer)" #answer/>
     </div>
   </div>
   
   <!-- Idle period -->
-  <div *ngIf="currentRoundType !== 1 && currentRoundType !== 2 && currentRoundType !== 3">
+  <div *ngIf="currentRound.type === 0">
     <div>
-      Waiting... ({{currentCountdown}})
+      Waiting... ({{currentRound.countdown}})
     </div>
     <div>
       <button style="button" (click)="join()">Start a Game</button>
@@ -55,13 +55,18 @@
   </div>
   
   <!-- Voting Round -->
-  <div *ngIf="currentRoundType === 2">
-    Voting... ({{currentCountdown}})
+  <div *ngIf="currentRound.type === 2">
+    <div>
+      Voting... ({{currentRound.countdown}})
+    </div>
+    <div>
+      <div class="pointer" *ngFor="let a of answers" (click)="vote()">{{a.answer}}</div>
+    </div> 
   </div>
   
   <!-- Results Round -->
-  <div *ngIf="currentRoundType === 3">
-    Results! ({{currentCountdown}})
+  <div *ngIf="currentRound.type === 3">
+    Results! ({{currentRound.countdown}})
   </div>
   
   <!-- Background effects -->

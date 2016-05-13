@@ -24,7 +24,6 @@ export class FirebaseEventPipe {
     if (!this._fbRef) {
       
       let event = arg;
-      // let reversed = this._getReversedFromArgs(arg);
       
       this._fbRef = new Firebase(url);
       
@@ -35,13 +34,6 @@ export class FirebaseEventPipe {
           if (!this._latestValue) this._latestValue = [];
           
           this._latestValue.push(snapshot.val());
-          
-          // if (reversed) {
-          //   this._latestValue.unshift(snapshot.val());
-          // } else {
-          //   this._latestValue.push(snapshot.val());  
-          // }
-
           this._cdRef.markForCheck();
         });
       } else {
@@ -67,23 +59,4 @@ export class FirebaseEventPipe {
       this._fbRef.off();
     }
   }
-
-  // _getEventFromArgs(args?: string[]) {
-  //   if (args && args[0] && args[0][0] === '"') {
-  //     args[0] = args[0].replace(/"/g, '');
-  //   }
-  //   if (args && typeof ALLOWED_FIREBASE_EVENTS[args[0]] === 'number') {
-  //     return args[0];
-  //   }
-  //   throw `Not a valid event to listen to: ${args[0]}.
-  //     Please provide a valid event, such as "child_added", by adding it as an
-  //     argument to the pipe: "value | firebase:child_added".
-  //     See https://www.firebase.com/docs/web/api/query/on.html for supported events.`
-
-  // }
-  
-  // _getReversedFromArgs(args?: string[]) {
-  //   var foo = (args[1] && args[1] === 'reversed');
-  //   return foo;
-  // }
 }
