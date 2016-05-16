@@ -6,10 +6,10 @@ import {
 }                     from 'angular2/router';
 import {Component}    from 'angular2/core';
 import {Location}     from 'angular2/platform/common';
-import {Home}         from './home';
-import {About}        from './about';
-import {Room}         from './room';
-import {RoomNew}      from './create';
+import {Home}         from './home.component';
+import {HowTo}        from './howto.component';
+import {Room}         from './room.component';
+import {RoomNew}      from './create.component';
 
 // Router Configuration
 
@@ -20,9 +20,9 @@ import {RoomNew}      from './create';
     component: Home
   },
   {
-    name: 'About',
-    path: '/about', 
-    component: About
+    name: 'HowTo',
+    path: '/howto', 
+    component: HowTo
   },
   {
     name: 'RoomNew',
@@ -45,9 +45,9 @@ import {RoomNew}      from './create';
     <nav class="navbar color-white" [class.gradient]="showGradient()">
       <div class="container">
         <a class="pointer logo" [routerLink]="['Home']">Acro</a>
-        <a class="pointer float-right" [routerLink]="['About']">Sign In</a>
+        <a class="pointer float-right" [routerLink]="['HowTo']">Sign In</a>
         <a class="pointer float-right" [routerLink]="['RoomNew']">New Room</a>
-        <a class="pointer float-right" [routerLink]="['About']">How to play</a>
+        <a class="pointer float-right" [routerLink]="['HowTo']">How to play</a>
       </div>
     </nav>
     <router-outlet></router-outlet>

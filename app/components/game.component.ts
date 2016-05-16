@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from 'angular2/core';
-import {FirebaseService}  from './../services/services.firebase';
-import {Convert} from './../services/Convert.services';
-import {TaskModel, TASK_TYPE} from './../models/models.task';
+import {FirebaseService}          from './../services/services.firebase';
+import {Convert}                  from './../services/Convert.services';
+import {TaskModel, TASK_TYPE}     from './../models/models.task';
 
 @Component({
   selector: 'game',
@@ -68,11 +68,14 @@ export class Game implements OnInit {
       
       this.currentRound = value;
       this.currentRound.countdown = (value.countdown) ? value.countdown : 0;
-      this.currentRound.letters = (value.letters) ? value.letters.chars : null;
-      this.currentRound.validator = (value.letters) ? new RegExp(value.letters.validator, 'gi') : null;
       this.currentRound.category = (value.category) ? value.category : null;
       this.countdownPercent = `${percent}%`;
       this.roundType = value.type;
+      
+      if (value.letters) {
+        this.currentRound.letters = (value.letters.chars) ? value.letters.chars : null;
+        this.currentRound.validator = (value.letters.validator) ? new RegExp(value.letters.validator, 'gi') : null;
+      }
     });
   }
   

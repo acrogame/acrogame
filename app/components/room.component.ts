@@ -3,9 +3,9 @@ import {RouteParams}                from 'angular2/router';
 import {FirebaseEventPipe}          from './../pipes/pipes.firebaseevent';
 import {FirebaseService}            from './../services/services.firebase';
 import {Config}                     from './../config/config.acro';
-import {Spinner}                    from './spinner';
-import {Chat}                       from './chat';
-import {Game}                       from './game';
+import {Spinner}                    from './spinner.component';
+import {Chat}                       from './chat.component';
+import {Game}                       from './game.component';
 import {TaskModel, TASK_TYPE}       from './../models/models.task';
 
 @Component({
