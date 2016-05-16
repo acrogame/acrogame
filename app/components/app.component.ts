@@ -10,6 +10,7 @@ import {Home}         from './home.component';
 import {HowTo}        from './howto.component';
 import {Room}         from './room.component';
 import {RoomNew}      from './create.component';
+import {Auth}         from './auth.component';
 
 // Router Configuration
 
@@ -33,7 +34,12 @@ import {RoomNew}      from './create.component';
     name: 'Room',
     path: '/room/:id', 
     component: Room
-  }
+  },
+  {
+    name: 'Auth',
+    path: '/auth', 
+    component: Auth
+  },
 ])
 
 // Application Root Component:
@@ -45,7 +51,7 @@ import {RoomNew}      from './create.component';
     <nav class="navbar color-white" [class.gradient]="showGradient()">
       <div class="container">
         <a class="pointer logo" [routerLink]="['Home']">Acro</a>
-        <a class="pointer float-right" [routerLink]="['HowTo']">Sign In</a>
+        <a class="pointer float-right" [routerLink]="['Auth']">Sign In</a>
         <a class="pointer float-right" [routerLink]="['RoomNew']">New Room</a>
         <a class="pointer float-right" [routerLink]="['HowTo']">How to play</a>
       </div>

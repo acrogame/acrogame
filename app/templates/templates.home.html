@@ -15,7 +15,7 @@
   
   <div class="wall">
     <div class="brick p-1-4" *ngFor="let room of roomsUrl | $firebaseevent:'child_added'">
-      <div class="card pointer" [routerLink]="['Room', {id: room.id}]">
+      <div class="container-card pointer" [routerLink]="['Room', {id: room.id}]">
         <p>Room {{room.id}}</p>
       </div>
     </div>

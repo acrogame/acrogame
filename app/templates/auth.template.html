@@ -1,0 +1,16 @@
+<div class="container margin-top">
+  <div class="card">
+    <form (ngSubmit)="signUp()" #signUpForm="ngForm">
+      <fieldset>
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@emailcompany.com" required [(ngModel)]="model.email" ngControl="email" #email="ngForm" />
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Make it a good one" required [(ngModel)]="model.password" ngControl="password" #password="ngForm" />
+        <!-- Submit -->
+        <button type="submit">Sign up</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

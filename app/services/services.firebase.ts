@@ -16,7 +16,7 @@ export class FirebaseService {
    * @path: make sure there is a leading '/'
   */ 
   
-  getRef(path: string): any {
+  getRef(path?: string): any {
     if (this.$fb) {
       var $ref = (path) ? this.$fb.child(path) : this.$fb;
       return $ref;
