@@ -24,7 +24,7 @@ a {
 
 a:hover,
 a:active {
-  color: #f3649D;
+  color: $co-pink;
 }
 
 h1 {
@@ -431,11 +431,14 @@ label {
   font-weight: 500;
 }
 
-input {
+input[type='text'] {
   height: 3rem;
+  line-height: 3rem;
 }
 
 button {
+  background-color: $co-pink;
+  border-color: $co-pink;
   height: 3rem;
   line-height: 3rem;
   padding: 0 2rem;

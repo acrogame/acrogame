@@ -78,13 +78,32 @@
 .card {
   display: block;
   width: 100%;
+  overflow: hidden;
   max-width: 600px;
   margin: 20px auto;
-  background-color: $co-white;
+  background-color: $co-grey;
+  border: 5px solid $co-white;
   @include rounded(5px);
-  @include shadow(2px);
+  @include shadow(1px);
   
   fieldset {
-    padding: 5px;
+    padding: 10px 5px 5px;
+    margin-bottom: 0;
+  }
+  
+  form {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Auth
+ *
+ */
+ 
+.container-auth {
+  button {
+    width: 100%;
+    border-radius: 5px;
   }
 }

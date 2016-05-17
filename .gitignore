@@ -25,3 +25,5 @@ app/models/*.js
 app/models/*.js.map
 
 app/assets/style/css/
+
+.DS_Store/
