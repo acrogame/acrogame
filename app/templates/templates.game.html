@@ -31,7 +31,7 @@
       <div class="container-letters bounceInDown animated" *ngIf="currentRound.letters">
         <svg>
           <text class="acroletters unselectable" x="50%" y="50%" text-anchor="middle">
-            <tspan *ngFor="let letter of currentRound.letters">
+            <tspan *ngFor="let letter of currentRound.letters.chars">
               {{letter}}
             </tspan>
           </text>

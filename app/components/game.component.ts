@@ -16,6 +16,7 @@ export class Game implements OnInit {
   
   currentGame: any;
   currentRound: any;
+  validator: any;
   answers: any[];
   roundType: number;
   answerSubmitted: boolean;
@@ -44,39 +45,7 @@ export class Game implements OnInit {
     this.$taskRef = this.firebaseService.getRef(taskPath);
     this.$answersRef = this.firebaseService.getRef(answerPath)
     
-    /**
-     * Watch for changes here!
-     */
-    
-    this.$roundRef.on('value', ($snap) => {
-      
-      var value = $snap.val();
-      
-      if (!value) return;
-      
-      // If this is not a playing round, reset the Round
-      if (value.type && value.type !== 1) {
-        this.reset();
-      }
-      
-      // If this is a voting round, let's get the answers
-      if (value.type && value.type === 2) {
-        this.answers = Convert.objectToArray(value.answers);
-      }
-      
-      var percent = Math.floor((value.countdown / value.countdownStart) * 100);
-      
-      this.currentRound = value;
-      this.currentRound.countdown = (value.countdown) ? value.countdown : 0;
-      this.currentRound.category = (value.category) ? value.category : null;
-      this.countdownPercent = `${percent}%`;
-      this.roundType = value.type;
-      
-      if (value.letters) {
-        this.currentRound.letters = (value.letters.chars) ? value.letters.chars : null;
-        this.currentRound.validator = (value.letters.validator) ? new RegExp(value.letters.validator, 'gi') : null;
-      }
-    });
+    this.$roundRef.on('value', ($snap) => this.updateOnChange($snap));
   }
   
   private reset() {
@@ -85,9 +54,14 @@ export class Game implements OnInit {
   }
   
   private validateAnswer(answer: string): boolean {
-    this.answerSubmitted = true;
-    this.answerValid = (this.currentRound.validator) ? this.currentRound.validator.test(answer) : false;
-    return this.answerValid;
+    this.answerSubmitted = true;    
+    try {  
+      this.answerValid = (this.validator) ? this.validator.test(answer) : false;
+      return this.answerValid;
+    } catch (ex) {
+      console.error(ex);
+      return false;
+    }
   }
   
   private newGame() {
@@ -96,19 +70,41 @@ export class Game implements OnInit {
     this.$taskRef.push(new TaskModel(TASK_TYPE.NEW_GAME, {roomId: this.id}))
   }
   
-  private watchGame() {
+  private updateOnChange($snap) {
+    
+    /**
+     * Watch for changes here!
+     */
+    
+    var value = $snap.val();
 
-    this.$roundRef.on('child_changed', ($snap) => {
-      
-      this.currentGame = $snap.val();
-      
-      var percent = (
-        this.currentGame.currentRound.countdown / 
-        this.currentGame.currentRound.countdownStart
-      );
-      
-      this.countdownPercent = `${Math.floor(percent)}%`;
-    });
+    if (!value) return;
+
+    // If this is not a playing round, reset the Round
+    if (value.type && value.type !== 1) {
+      this.reset();
+    }
+
+    // If this is a voting round, let's get the answers
+    if (value.type && value.type === 2) {
+      this.answers = Convert.objectToArray(value.answers);
+    }
+
+    var percent = Math.floor((value.countdown / value.countdownStart) * 100);
+
+    this.currentRound = value;
+    this.currentRound.countdown = (value.countdown) ? value.countdown : 0;
+    this.currentRound.category = (value.category) ? value.category : null;
+    this.currentRound.letters = (value.letters) ? value.letters : null;
+    this.countdownPercent = `${percent}%`;
+    this.roundType = value.type;
+    
+    try {
+      this.validator = new RegExp(this.currentRound.letters.validator, 'gi');
+    } catch (ex) {
+      // Swallow exception
+      this.validator = null;
+    }
   }
   
   onKeyUp($event: any, answer: any) {

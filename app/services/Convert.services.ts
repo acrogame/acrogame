@@ -6,6 +6,9 @@ export class Convert {
   constructor() { }
   
   static objectToArray (object: any): any[] {
+    
+    if (!object) return [];
+    
     try {
       return Object.keys(object).map(x => object[x]);
     } catch (ex) {
