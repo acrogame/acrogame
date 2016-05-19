@@ -36,6 +36,18 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="//www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyABAH3Bgz3d3HWvOsoxNVNHA8R0wDVbbQM",
+        authDomain: "acrogame.firebaseapp.com",
+        databaseURL: "https://acrogame.firebaseio.com",
+        storageBucket: "project-8507993114432601486.appspot.com",
+      };
+      // Go!
+      firebase.initializeApp(config);
+    </script>
     
     <!--<script src="node_modules/firebase/lib/firebase-web.js"></script>-->
     
@@ -50,7 +62,7 @@
         }
       });
       
-      System.import('node_modules/firebase/lib/firebase-web.js');
+      // System.import('node_modules/firebase/lib/firebase-web.js');
       
       System.import('app/main')
             .then(null, console.error.bind(console));

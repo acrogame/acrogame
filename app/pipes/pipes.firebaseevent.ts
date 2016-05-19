@@ -25,7 +25,7 @@ export class FirebaseEventPipe {
       
       let event = arg;
       
-      this._fbRef = new Firebase(url);
+      this._fbRef = window.firebase.database().ref();
       
       if (ALLOWED_FIREBASE_EVENTS[event] === ALLOWED_FIREBASE_EVENTS.child_added) {
         this._fbRef.on(event, snapshot => {

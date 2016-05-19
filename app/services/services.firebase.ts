@@ -8,7 +8,7 @@ export class FirebaseService {
   
   constructor(@Inject(Config) config) {
     if (!this.$fb) {
-      this.$fb = new Firebase(config.get('firebaseUrl'));
+      this.$fb = window.firebase.database().ref();
     }
   }
   
